@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="25" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32">
+  <image source="tileset.png" width="64" height="64"/>
+ </tileset>
+ <layer name="playground" width="40" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztlDsKADAIQ/3c/85dHQpSkTaVDG8ywyMEVUQ04AEFhH4z/QzcD70/+tEPgd/8LMln92p2Sn9o+CWmO3JDfX6nfyHL7/w6fg9qf/R7T9wXoh96f1W/BbU/BOM=
+  </data>
+ </layer>
+ <objectgroup name="objects">
+  <object name="tower" x="64" y="128" width="32" height="32"/>
+  <object name="tower" x="256" y="352" width="32" height="32"/>
+  <object name="tower" x="288" y="576" width="32" height="32"/>
+  <object name="tower" x="512" y="352" width="32" height="32"/>
+  <object name="tower" x="864" y="352" width="32" height="32"/>
+  <object name="tower" x="672" y="576" width="32" height="32"/>
+  <object name="tower" x="1088" y="576" width="32" height="32"/>
+  <object name="tower" x="832" y="704" width="32" height="32"/>
+ </objectgroup>
+</map>
