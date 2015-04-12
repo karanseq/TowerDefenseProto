@@ -14,6 +14,8 @@ using namespace std;
 #define SOUND_ENGINE CocosDenshion::SimpleAudioEngine::sharedEngine()
 
 #define TILE_SIZE 32
+#define MAX_COLS 40
+#define MAX_ROWS 25
 
 #define GET_X_FOR_COL(col) ( (col) * TILE_SIZE )
 #define GET_Y_FOR_ROW(row, h) ( ( (h) - (row) ) * TILE_SIZE )

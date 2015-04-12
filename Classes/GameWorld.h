@@ -19,11 +19,27 @@ public:
     void CreatePlayground();
     void CreateTowers();
 
+    void GeneratePath(CCPoint start, CCPoint end);
+    void FillTheMatrix(int k, int x, int y);
+    void TracePath(int k, int x, int y);
+    void PrintMatrix();
+
+    void update(float dt);
+
     CCTMXTiledMap* tiled_map_;
     CCTMXLayer* tile_layer_;
 
     int num_towers_;
     vector<Tower*> towers_;
+
+    int num_enemy_start_points_;
+    vector<CCPoint> enemy_start_points_;
+    int num_enemy_end_points_;
+    vector<CCPoint> enemy_end_points_;
+
+    // Lee's play-things
+    int matrix_[MAX_COLS][MAX_ROWS];
+    vector<CCPoint> path_;
 };
 
 #endif // GAME_WORLD_H_
