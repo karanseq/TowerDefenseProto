@@ -11,8 +11,8 @@ GameWorld::GameWorld()
 	enemy_start_points_.clear();
 	num_enemy_end_points_ = 0;
 	enemy_end_points_.clear();
-	matrix_[MAX_COLS][MAX_ROWS] = {0};
-	path_.clear();
+	memset(matrix_, 0, sizeof(matrix_));
+	enemy_path_.clear();
 }
 
 GameWorld::~GameWorld()
@@ -114,7 +114,6 @@ void GameWorld::GeneratePath(CCPoint start, CCPoint end)
 				matrix_[i][j] = -1;
 		}
 	}
-//	PrintMatrix();
 
 	// run Lee's algorithm
 	matrix_[(int)start.x][(int)start.y] = 0;
@@ -123,11 +122,11 @@ void GameWorld::GeneratePath(CCPoint start, CCPoint end)
 
 	// trace the path
 	CCLOG("About to call TracePath with k=%d  x=%d  y=%d", matrix_[(int)end.x][(int)end.y], (int)end.x, (int)end.y);
-//	TracePath(matrix_[(int)end.x][(int)end.y], (int)end.x, (int)end.y);
-	CCLOG("Path has length:%d", path_.size());
-//	for(int i = 0; i < path_.size(); ++i)
+	TracePath(matrix_[(int)end.x][(int)end.y], (int)end.x, (int)end.y);
+	CCLOG("Path has length:%d", enemy_path_.size());
+//	for(int i = 0; i < enemy_path_.size(); ++i)
 //	{
-//		CCLOG("%f, %f", path_[i].x, path_[i].y);
+//		CCLOG("%f, %f", enemy_path_[i].x, enemy_path_[i].y);
 //	}
 }
 
@@ -182,7 +181,7 @@ void GameWorld::TracePath(int k, int x, int y)
 		if(matrix_[x+1][y] == k-1)
 		{
 			matrix_[x+1][y] = 99;
-			path_.push_back(ccp(x+1, y));
+			enemy_path_.push_back(ccp(x+1, y));
 			TracePath(k-1, x+1, y);
 		}
 	}
@@ -193,7 +192,7 @@ void GameWorld::TracePath(int k, int x, int y)
 		if(matrix_[x-1][y] == k-1)
 		{
 			matrix_[x-1][y] = 99;
-			path_.push_back(ccp(x-1, y));
+			enemy_path_.push_back(ccp(x-1, y));
 			TracePath(k-1, x-1, y);
 		}
 	}
@@ -204,7 +203,7 @@ void GameWorld::TracePath(int k, int x, int y)
 		if(matrix_[x][y+1] == k-1)
 		{
 			matrix_[x][y+1] = 99;
-			path_.push_back(ccp(x, y+1));
+			enemy_path_.push_back(ccp(x, y+1));
 			TracePath(k-1, x, y+1);
 		}
 	}
@@ -215,7 +214,7 @@ void GameWorld::TracePath(int k, int x, int y)
 		if(matrix_[x][y-1] == k-1)
 		{
 			matrix_[x][y-1] = 99;
-			path_.push_back(ccp(x, y-1));
+			enemy_path_.push_back(ccp(x, y-1));
 			TracePath(k-1, x, y-1);
 		}
 	}

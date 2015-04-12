@@ -10,13 +10,13 @@
 
 Tower::Tower()
 {
-	range_[NUM_TOWER_UPGRADES] = {0.0f};
-	physical_damage_[NUM_TOWER_UPGRADES] = {0.0f};
-	magical_damage_[NUM_TOWER_UPGRADES] = {0.0f};
-	speed_damage_[NUM_TOWER_UPGRADES] = {0.0f};
-	speed_damage_duration_[NUM_TOWER_UPGRADES] = {0};
-	fire_rate_[NUM_TOWER_UPGRADES] = {0.0f};
-	cost_[NUM_TOWER_UPGRADES] = {0};
+	memset(range_, 0, sizeof(range_));
+	memset(physical_damage_, 0, sizeof(physical_damage_));
+	memset(magical_damage_, 0, sizeof(magical_damage_));
+	memset(speed_damage_, 0, sizeof(speed_damage_));
+	memset(speed_damage_duration_, 0, sizeof(speed_damage_duration_));
+	memset(fire_rate_, 0, sizeof(fire_rate_));
+	memset(cost_, 0, sizeof(cost_));
 
 	current_level_ = 0;
 }

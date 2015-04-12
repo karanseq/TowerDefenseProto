@@ -22,7 +22,9 @@ public:
 	virtual bool init(GameWorld* game_world);
 	virtual void Update();
 
-	list<int> path_indices_;
+	int num_path_indices_;
+	int current_path_index_;
+	vector<CCPoint> path_indices_;
 };
 
 #endif /* ENEMY_H_ */

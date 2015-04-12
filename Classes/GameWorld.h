@@ -23,6 +23,7 @@ public:
     void FillTheMatrix(int k, int x, int y);
     void TracePath(int k, int x, int y);
     void PrintMatrix();
+	inline vector<CCPoint> GetEnemyPath() { return enemy_path_; }
 
     void update(float dt);
 
@@ -39,7 +40,7 @@ public:
 
     // Lee's play-things
     int matrix_[MAX_COLS][MAX_ROWS];
-    vector<CCPoint> path_;
+    vector<CCPoint> enemy_path_;
 };
 
 #endif // GAME_WORLD_H_
